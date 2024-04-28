@@ -1,3 +1,0 @@
-#bash
-uptime > /home/abdu/Study/Embedded_Linux/scripts/crontab_scripts/cron_data.txt
-#uptime
