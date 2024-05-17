@@ -1,0 +1,1 @@
+cmd_/home/abdu/Study/Embedded_Linux/device_drivers/5_lcd_driver/lcd_driver.mod := { echo  /home/abdu/Study/Embedded_Linux/device_drivers/5_lcd_driver/lcd_driver.o;  echo; } > /home/abdu/Study/Embedded_Linux/device_drivers/5_lcd_driver/lcd_driver.mod

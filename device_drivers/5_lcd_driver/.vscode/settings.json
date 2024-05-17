@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.rst": "restructuredtext",
+        "module.h": "c",
+        "fs.h": "c"
+    }
+}

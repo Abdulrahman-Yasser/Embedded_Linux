@@ -1,0 +1,1 @@
+cmd_/home/abdu/Study/Embedded_Linux/device_drivers/6_PWM/Module.symvers := sed 's/\.ko$$/\.o/' /home/abdu/Study/Embedded_Linux/device_drivers/6_PWM/modules.order | scripts/mod/modpost -m -a  -o /home/abdu/Study/Embedded_Linux/device_drivers/6_PWM/Module.symvers -e -i Module.symvers   -T -

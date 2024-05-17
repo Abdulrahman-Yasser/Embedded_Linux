@@ -1,0 +1,1 @@
+cmd_/home/abdu/Study/Embedded_Linux/device_drivers/4_GPIO_driver/modules.order := {   echo /home/abdu/Study/Embedded_Linux/device_drivers/4_GPIO_driver/gpio_driver.ko; :; } | awk '!x[$$0]++' - > /home/abdu/Study/Embedded_Linux/device_drivers/4_GPIO_driver/modules.order
