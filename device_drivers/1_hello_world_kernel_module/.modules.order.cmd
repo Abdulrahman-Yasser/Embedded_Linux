@@ -1,0 +1,1 @@
+cmd_/home/abdu/Study/Embedded_Linux/device_drivers/1_hello_world_kernel_module/modules.order := {   echo /home/abdu/Study/Embedded_Linux/device_drivers/1_hello_world_kernel_module/mymodule.ko; :; } | awk '!x[$$0]++' - > /home/abdu/Study/Embedded_Linux/device_drivers/1_hello_world_kernel_module/modules.order

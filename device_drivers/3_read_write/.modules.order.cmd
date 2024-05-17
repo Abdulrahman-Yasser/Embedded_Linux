@@ -1,0 +1,1 @@
+cmd_/home/abdu/Study/Embedded_Linux/device_drivers/3_read_write/modules.order := {   echo /home/abdu/Study/Embedded_Linux/device_drivers/3_read_write/read_write.ko; :; } | awk '!x[$$0]++' - > /home/abdu/Study/Embedded_Linux/device_drivers/3_read_write/modules.order

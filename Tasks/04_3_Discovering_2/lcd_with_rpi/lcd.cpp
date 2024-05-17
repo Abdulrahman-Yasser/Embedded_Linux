@@ -42,40 +42,31 @@ namespace my_lcd{
         char temp[1];
         /* It must be 4-bit mode,to fit the RS, En, RW and 4-bits data */
         usleep(50000);
-        temp[0] = 0x03;
-        result |= the_used_i2c.write_on_i2c(lcd_address, temp, 1);
-        usleep(5000);
-        result |= the_used_i2c.write_on_i2c(lcd_address, temp, 1);
-        usleep(5000);
-        result |= the_used_i2c.write_on_i2c(lcd_address, temp, 1);
-        usleep(10000);
 
-        temp[0] = 0x02;
-        result |= the_used_i2c.write_on_i2c(lcd_address, temp, 1);
-        usleep(10000);
+        _write_cmd(0x33);
+        usleep(2000);
 
-        temp[0] = (unsigned char)my_current_functionality << 2;
-        result |= the_used_i2c.write_on_i2c(lcd_address, temp, 1);
+        _write_cmd(0x32);
+        usleep(2000);
 
-        temp[0] = lcd_commands::LCD_I2C_INST_DISPLAY_OFF_CURSOR_OFF_BLK_OFF;
-        result |= the_used_i2c.write_on_i2c(lcd_address, temp, 1);
+        _write_cmd(0x28);
+        usleep(2000);
 
-        temp[0] = lcd_commands::LCD_I2C_INST_CLEAR;
-        result |= the_used_i2c.write_on_i2c(lcd_address, temp, 1);
+        _write_cmd(0xe0);
+        usleep(2000);
 
-        temp[0] = lcd_commands::LCD_I2C_INST_CURSOR_DEC_LEFT;
-        result |= the_used_i2c.write_on_i2c(lcd_address, temp, 1);
+        _write_cmd(0x01);
+        usleep(2000);
 
-        temp[0] = lcd_commands::LCD_I2C_INST_DISPLAY_ON_CURSOR_ON_BLK_OFF;
-        result |= the_used_i2c.write_on_i2c(lcd_address, temp, 1);
+        _write_cmd(0x06);
+        usleep(2000);
 
-        temp[0] = lcd_commands::LCD_I2C_INST_CLEAR;
-        result |= the_used_i2c.write_on_i2c(lcd_address, temp, 1);
+        _write_cmd(0x01);
+        usleep(2000);
 
         if(result != 0)
             lcd_error_state = error_state::opening_error;
 
-        usleep(1000);
         return result;
     }
 
@@ -94,11 +85,20 @@ namespace my_lcd{
         data_t[2] = dataL | 0x0C;  // en =1, rs =0
         data_t[3] = dataL | 0x08;  // en =0, rs =0
 
-        result = the_used_i2c.write_on_i2c(lcd_address, data_t, 4);
+        result = the_used_i2c.write_on_i2c(lcd_address, data_t, 1);
+        usleep(1);
+        result = the_used_i2c.write_on_i2c(lcd_address, &data_t[1], 1);
         if(result < 0)
             lcd_error_state = error_state::writing_cmd_error;
+        usleep(100);
 
-        usleep(1000);
+        result = the_used_i2c.write_on_i2c(lcd_address, &data_t[2], 1);
+        usleep(1);
+        result = the_used_i2c.write_on_i2c(lcd_address, &data_t[3], 1);
+        if(result < 0)
+            lcd_error_state = error_state::writing_cmd_error;
+        usleep(100);
+
         return result;
     }
 
@@ -119,9 +119,18 @@ namespace my_lcd{
             data_t[2] = dataL | 0x0D;  // en =1, rs =1
             data_t[3] = dataL | 0x09;  // en =0, rs =1
 
-            result |= the_used_i2c.write_on_i2c(lcd_address, data_t, 4);
-            usleep(1000);
+            result |= the_used_i2c.write_on_i2c(lcd_address, data_t, 1);
+            usleep(1);
+            result |= the_used_i2c.write_on_i2c(lcd_address, &data_t[1], 1);
+            usleep(1);
+            result |= the_used_i2c.write_on_i2c(lcd_address, &data_t[2], 1);
+            usleep(1);
+
+            result |= the_used_i2c.write_on_i2c(lcd_address, &data_t[3], 1);
+            usleep(100);
+
         }
+
         if(result != 0)
             lcd_error_state = error_state::writing_data_error;
 
