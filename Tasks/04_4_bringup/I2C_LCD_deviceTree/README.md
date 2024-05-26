@@ -1,7 +1,7 @@
-To use the lcd, you must connect it first.
-You will find a file --> /dev/lcd
-Make it writable --> sudo chmod 666 /dev/lcd
-Write whatever you want there --> 
+- To use the lcd, you must connect it first.<br>
+- You will find a file ```/dev/lcd```  <br>
+- Make it writable ```sudo chmod 666 /dev/lcd```<br>
+- Write whatever you want there<br>
 
-echo "Okei Dokie" > /dev/lcd
-echo "" > /dev/lcd
+    - ```echo "Okei Dokie" > /dev/lcd```<br>
+    - ```echo "" > /dev/lcd```
