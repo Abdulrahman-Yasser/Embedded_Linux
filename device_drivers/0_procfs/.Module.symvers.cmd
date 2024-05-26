@@ -1,0 +1,1 @@
+cmd_/home/abdu/Study/Embedded_Linux/device_drivers/0_procfs/Module.symvers := sed 's/\.ko$$/\.o/' /home/abdu/Study/Embedded_Linux/device_drivers/0_procfs/modules.order | scripts/mod/modpost -m -a  -o /home/abdu/Study/Embedded_Linux/device_drivers/0_procfs/Module.symvers -e -i Module.symvers   -T -

@@ -5,8 +5,12 @@
 #include <linux/cdev.h>
 #include <linux/slab.h>
 
+#include <linux/version.h>
 #include <linux/i2c.h>
 #include <linux/kernel.h>
+
+#define DRIVER_NAME "i2c_gpio_expander_device"
+#define DRIVER_CLASS "i2c_gpio_expander_class"
 
 static struct i2c_adapter* my_i2c_adapter = NULL;
 static struct i2c_client* my_i2c_client = NULL;
@@ -16,7 +20,7 @@ static struct i2c_client* my_i2c_client = NULL;
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Abdulrahman Yasser ");
 MODULE_DESCRIPTION("A simple gpio driver for Using an I2C in both read and write!\n"); 
-MODULE_SUPPORTED_DEVICE("None");
+MODULE_SUPPORTED_DEVICE("NONE");
 
 
 /* Defines for device identification */
@@ -48,12 +52,11 @@ static struct class *my_class;
 static struct cdev my_device;
 
 
-#define DRIVER_NAME "i2c_gpio_expander_device"
-#define DRIVER_CLASS "i2c_gpio_expander_class"
-
 /* Buffer for data */
-static char buffer[255];
-static int buffer_pointer;
+s32 dig_T1, dig_T2, dig_T3;
+
+
+
 
 /**
  * @brief Read data out of the buffer
@@ -64,10 +67,6 @@ static ssize_t driver_read(struct file *File, char *user_buffer, size_t count, l
 
 	/* Get amount of data to copy */
 	to_copy = min(count, sizeof(tmp));
-
-	/* Read value of button */
-	printk("Value of button : %d\n", gpio_get_value(17));
-	tmp[0] = gpio_get_value(17) + '0';
 
 	/* Copy data from user */
 	not_copied = copy_to_user(user_buffer, &tmp, to_copy);
@@ -90,19 +89,6 @@ static ssize_t driver_write(struct file *File, const char *user_buffer, size_t c
 	/* Copy data from user */
 	not_copied = copy_from_user(&value, user_buffer, to_copy);
 	
-	/* Setting the LED */
-	switch(value){
-		case '0':
-			gpio_set_value(4, 0);
-			break;
-		case '1':
-			gpio_set_value(4, 1);
-			break;
-		defaule:
-			printk("Invalue Input!\n");
-			break;
-	};
-
 	/* Calculate data */
 	delta = to_copy - not_copied;
 	return delta;
@@ -141,6 +127,7 @@ static struct file_operations fops = {
  * */
 static int __init ModuleInit(void){
 	int retval;
+	u8 id;
 	printk("HEllo, kernel\n");
 	
 	/* Allocate a device number */
@@ -172,14 +159,29 @@ static int __init ModuleInit(void){
 		printk("Registering of device to kernel failed!\n");
 		goto AddError;
 	}
+	/* Get an adapter of I2C specified bus */
+	my_i2c_adapter = i2c_get_adapter(I2C_BUS_AVAILABLE);
+	
+	if(my_i2c_adapter != NULL){
+		my_i2c_client = i2c_acpi_new_device(my_i2c_adapter, &my_i2c_board_info);
+		if(my_i2c_client != NULL){
+			if(i2c_add_driver(&my_i2c_driver) != -1){
+				ret = 0;
+			}else{
+				printk("Can't add driver ...\n");
+			}
+		}
+		i2c_put_adapter(my_i2c_driver);
+	}
+	printk("I2C driver added!\n");
+	
+	/* Read ID from register D0 */
+	id = i2c_smbus_read_byte_data(my_i2c_client, 0xD0);
+	printk("ID : 0x%x\n", id);
 	
 	
 	return 0;
 
-Gpio17Error:
-	gpio_free(17);
-Gpio4Error:
-	gpio_free(4);
 AddError:
 	device_destroy(my_class, my_device_nr);
 FileError:
@@ -195,9 +197,6 @@ ClassError:
  * */
 
 static void __exit ModuleExit(void){
-	gpio_set_value(4, 0);
-	gpio_free(17);
-	gpio_free(4);
 	cdev_del(&my_device);
 	device_destroy(my_class, my_device_nr);
 	class_destroy(my_class);

@@ -1,0 +1,2 @@
+/home/abdu/Study/Embedded_Linux/device_drivers/0_procfs/procfs_driver.o
+

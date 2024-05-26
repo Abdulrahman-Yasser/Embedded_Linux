@@ -1,0 +1,1 @@
+cmd_/home/abdu/Study/Embedded_Linux/device_drivers/0_wait_queue/wait_queue_driver.mod := { echo  /home/abdu/Study/Embedded_Linux/device_drivers/0_wait_queue/wait_queue_driver.o;  echo; } > /home/abdu/Study/Embedded_Linux/device_drivers/0_wait_queue/wait_queue_driver.mod

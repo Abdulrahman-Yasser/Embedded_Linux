@@ -1,0 +1,2 @@
+/home/abdu/Study/Embedded_Linux/device_drivers/01_wait_queue/wait_queue_driver.o
+
