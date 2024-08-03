@@ -1,3 +1,0 @@
-#bash
-uptime > /home/abdu/Study/Embedded_Linux/scripts/crontab_scripts/printing_log_time_weekly_report.txt
-#uptime

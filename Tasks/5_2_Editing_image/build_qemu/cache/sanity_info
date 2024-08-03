@@ -1,0 +1,4 @@
+SANITY_VERSION 1
+TMPDIR /media/abdu/30d82853-a6c1-4840-bbe8-970ab693676b/poky_image_qemu/tmp
+SSTATE_DIR /media/abdu/30d82853-a6c1-4840-bbe8-970ab693676b/poky_image_qemu/sstat
+NATIVELSBSTRING ubuntu-20.04

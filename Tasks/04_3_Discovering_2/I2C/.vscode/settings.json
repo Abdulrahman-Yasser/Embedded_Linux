@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "*.rst": "restructuredtext",
-        "i2c.h": "c",
-        "i2c-dev.h": "c"
-    }
-}

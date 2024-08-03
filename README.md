@@ -32,5 +32,5 @@ This repo will contain some projects that I've faced during learning Embedded Li
 
 - problem : not detecting wlan0 ?
 	solution : add arm_64bit=0
-
+	solution 2 : add the right modules for the right (uname -r)
 
