@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -fPIC CMakeFiles/cam_viewer.dir/main.c.o -o cam_viewer  -lpipewire-0.3 

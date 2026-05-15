@@ -1,0 +1,1 @@
+savedcmd_/home/abdu/Study/Embedded_Linux/device_drivers/1_kernel_panic/modules.order := {   echo /home/abdu/Study/Embedded_Linux/device_drivers/1_kernel_panic/mymodule.o; :; } > /home/abdu/Study/Embedded_Linux/device_drivers/1_kernel_panic/modules.order

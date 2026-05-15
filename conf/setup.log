@@ -1,0 +1,5 @@
+--- beginning of setup script
+--- fragment /media/abdu/LinuxHome/Embedded_Linux/git_ignoring/AGL/trout/meta-agl/templates/base/01_setup_EULAfunc.sh
+--- fragment /media/abdu/LinuxHome/Embedded_Linux/git_ignoring/AGL/trout/meta-agl/templates/base/01_setup_pkg_revision.sh
+--- fragment /media/abdu/LinuxHome/Embedded_Linux/git_ignoring/AGL/trout/meta-agl/templates/base/99_setup_EULAconf.sh
+--- end of setup script

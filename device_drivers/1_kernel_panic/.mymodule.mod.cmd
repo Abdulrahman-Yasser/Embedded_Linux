@@ -1,0 +1,1 @@
+savedcmd_/home/abdu/Study/Embedded_Linux/device_drivers/1_kernel_panic/mymodule.mod := printf '%s\n'   mymodule.o | awk '!x[$$0]++ { print("/home/abdu/Study/Embedded_Linux/device_drivers/1_kernel_panic/"$$0) }' > /home/abdu/Study/Embedded_Linux/device_drivers/1_kernel_panic/mymodule.mod

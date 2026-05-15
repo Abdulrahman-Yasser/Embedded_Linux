@@ -1,0 +1,1 @@
+savedcmd_/home/abdu/Study/Embedded_Linux/device_drivers/1_kernel_panic/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/abdu/Study/Embedded_Linux/device_drivers/1_kernel_panic/Module.symvers -T /home/abdu/Study/Embedded_Linux/device_drivers/1_kernel_panic/modules.order -i Module.symvers -e 

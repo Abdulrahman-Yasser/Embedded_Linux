@@ -1,0 +1,3 @@
+/media/abdu/LinuxHome/Embedded_Linux/git_ignoring/gsoc/pipewire_apps/1_expamle/build/CMakeFiles/cam_viewer.dir
+/media/abdu/LinuxHome/Embedded_Linux/git_ignoring/gsoc/pipewire_apps/1_expamle/build/CMakeFiles/edit_cache.dir
+/media/abdu/LinuxHome/Embedded_Linux/git_ignoring/gsoc/pipewire_apps/1_expamle/build/CMakeFiles/rebuild_cache.dir

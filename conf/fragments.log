@@ -1,0 +1,13 @@
+/media/abdu/LinuxHome/Embedded_Linux/git_ignoring/AGL/trout/meta-agl/templates/feature/agl-app-framework/50_bblayers.conf.inc
+/media/abdu/LinuxHome/Embedded_Linux/git_ignoring/AGL/trout/meta-agl/templates/feature/agl-flutter/50_bblayers.conf.inc
+/media/abdu/LinuxHome/Embedded_Linux/git_ignoring/AGL/trout/meta-agl/templates/feature/agl-pipewire/50_bblayers.conf.inc
+/media/abdu/LinuxHome/Embedded_Linux/git_ignoring/AGL/trout/meta-agl/templates/base/00_local.conf.agl.inc
+/media/abdu/LinuxHome/Embedded_Linux/git_ignoring/AGL/trout/./meta-agl/templates/machine/qemux86-64/20_local.conf.inc
+/media/abdu/LinuxHome/Embedded_Linux/git_ignoring/AGL/trout/meta-agl/templates/feature/agl-app-framework/50_local.conf.inc
+/media/abdu/LinuxHome/Embedded_Linux/git_ignoring/AGL/trout/meta-agl/templates/feature/agl-flutter/50_local.conf.inc
+/media/abdu/LinuxHome/Embedded_Linux/git_ignoring/AGL/trout/meta-agl/templates/feature/agl-pipewire/50_local.conf.inc
+/media/abdu/LinuxHome/Embedded_Linux/git_ignoring/AGL/trout/meta-agl/templates/base/99_local.conf.inc
+/dev/stdin
+/media/abdu/LinuxHome/Embedded_Linux/git_ignoring/AGL/trout/meta-agl/templates/base/01_setup_EULAfunc.sh
+/media/abdu/LinuxHome/Embedded_Linux/git_ignoring/AGL/trout/meta-agl/templates/base/01_setup_pkg_revision.sh
+/media/abdu/LinuxHome/Embedded_Linux/git_ignoring/AGL/trout/meta-agl/templates/base/99_setup_EULAconf.sh
